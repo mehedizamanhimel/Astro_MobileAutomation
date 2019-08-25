@@ -18,7 +18,10 @@ public class createProjectAPI {
 	JsonPath jsonresponse;
 	
 	
-	public void createProject(String token, String String) throws IOException {
+	public void createProject(String token, String type, 
+			String temp_id, String uuid, 
+			String args, String name, int color,
+			int is_favorite, int parent_id, int child_order) throws IOException {
 		
 		testdata = new testProperty();
 		
@@ -27,13 +30,21 @@ public class createProjectAPI {
 		
 		jsonresponse = new JsonPath(RestAssured.
 				given().
-				header("authtoken", token).
+				header("token", token).
 				contentType("application/json").
 				
-				queryParam("String" , String).
+				queryParam("type" , type).
+				queryParam("temp_id" , temp_id).
+				queryParam("uuid" , uuid).
+				queryParam("args" , args).
+				queryParam("name" , name).
+				queryParam("color" , color).
+				queryParam("parent_id" , parent_id).
+				queryParam("child_order" , child_order).
+				queryParam("is_favorite" , is_favorite).
 				body(json.toString()).
 				when().
-				get().
+				post().
 				asString());
 		
 		jsonresponse.prettyPrint();
