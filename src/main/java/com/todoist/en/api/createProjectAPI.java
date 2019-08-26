@@ -29,21 +29,21 @@ public class createProjectAPI {
 		jsonresponse = new JsonPath(RestAssured.
 				given().
 				contentType("application/json").
-				header("token", token).
+				header("Authorization", token).
 				header("X-Request-Id", uuid).
 				
 				queryParam("name" , name).
-				body(json.toString()).
+				//body(json.toString()).
 				when().
 				post().
 				asString());
 		
-		jsonresponse.prettyPrint();
+		//jsonresponse.prettyPrint();
 			
 	}
 	
-	public String getID() {
-		return jsonresponse.getString("id");
+	public int getID() {
+		return jsonresponse.getInt("id");
 	}
 	
 	public int getOrder() {
@@ -54,8 +54,8 @@ public class createProjectAPI {
 		return jsonresponse.getString("name");
 	}
 	
-	public String getResponseCode() {
-		return jsonresponse.getString("responseCode").toString();
+	public int getResponseCode() {
+		return jsonresponse.getInt("responseCode");
 	}
 	
 
