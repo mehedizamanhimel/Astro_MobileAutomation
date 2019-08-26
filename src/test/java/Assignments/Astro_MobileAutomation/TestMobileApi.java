@@ -24,10 +24,6 @@ public class TestMobileApi extends AppiumBase {
 	
 	testProperty testData; 
 	
-	public TestMobileApi() {
-		
-	}
-	
 	createProjectAPI apiProject = new createProjectAPI();
 	public String projectName = RandomStringUtils.randomAlphabetic(9);
 	public WebDriverWait wait;
@@ -35,8 +31,8 @@ public class TestMobileApi extends AppiumBase {
 	public void setUp() throws IOException {
 		testData = new testProperty();
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("udid", testData.properties.getProperty("device_op6"));
-		capabilities.setCapability("deviceName", testData.properties.getProperty("device_op6"));
+		capabilities.setCapability("udid", testData.properties.getProperty("device_xiaomi"));
+		capabilities.setCapability("deviceName", testData.properties.getProperty("device_xiaomi"));
 		capabilities.setCapability("newCommandTimeout", 2400);
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("autoGrantPermissions ", true);
@@ -85,6 +81,7 @@ public class TestMobileApi extends AppiumBase {
 		Mobile_LoginScreen loginPage = new Mobile_LoginScreen(driver);
 		Mobile_WelComePage welComePage = new Mobile_WelComePage(driver);
 		String userEmail = testData.properties.getProperty("email");
+		String userPass = testData.properties.getProperty("pass");
 		
 		apiProject.createProject(testData.properties.getProperty("Authorization"), uuid, projectName);
 		System.out.println("The Project Name given is :"+projectName);
@@ -99,6 +96,8 @@ public class TestMobileApi extends AppiumBase {
 		welComePage.selectEmail();
 		driver.navigate().back();
 		loginPage.provideEmail(userEmail);
+		driver.navigate().back();
+		loginPage.providePass(userPass);
 		loginPage.confirmButtonToContinueWithEmail();
 		
 		homePage.getHeaderContent();
@@ -112,7 +111,7 @@ public class TestMobileApi extends AppiumBase {
 	}
 	
 	@Test(description="Verify that project created in mobile application is verified by API successfully")
-	public void projectCreationByMobileVerifiedByAPI() throws IOException {
+	public void projectCreationByMobileVerifiedByAPI() throws IOException, InterruptedException {
 		setUp();
 		
 		testData = new testProperty();
@@ -123,13 +122,14 @@ public class TestMobileApi extends AppiumBase {
 		Mobile_LoginScreen loginPage = new Mobile_LoginScreen(driver);
 		Mobile_WelComePage welComePage = new Mobile_WelComePage(driver);
 		String userEmail = testData.properties.getProperty("email");
-		
+		String userPass = testData.properties.getProperty("pass");
 		
 		welComePage.selectEmail();
-		driver.navigate().back();
+		welComePage.cancel();
 		loginPage.provideEmail(userEmail);
 		loginPage.confirmButtonToContinueWithEmail();
-		
+		loginPage.providePass(userPass);
+		loginPage.loginWithEmail();
 		homePage.clickMenuButton();
 		homePage.clickAddProjectButton();
 		

@@ -26,6 +26,9 @@ public class Mobile_WelComePage {
 	@FindBy(id="com.todoist:id/btn_welcome_continue_with_email")
 	WebElement continueWithEmail;
 	
+	@FindBy(id="com.google.android.gms:id/cancel")
+	WebElement cancel;
+	
 	public void selectFacebook() {
 		continueWithFaceBook.click();
 	}
@@ -36,6 +39,10 @@ public class Mobile_WelComePage {
 	
 	public void selectEmail() {
 		continueWithEmail.click();
+	}
+	
+	public void cancel() {
+		cancel.click();
 	}
 	
 }

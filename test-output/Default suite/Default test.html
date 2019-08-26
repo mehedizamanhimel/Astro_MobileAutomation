@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Aug 26 17:34:47 BDT 2019</td>
+<td>Started on:</td><td>Mon Aug 26 20:01:22 BDT 2019</td>
 </tr>
-<tr><td>Total time:</td><td>22 seconds (22720 ms)</td>
+<tr><td>Total time:</td><td>37 seconds (37689 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,14 +76,13 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='Assignments.Astro_MobileAutomation.TestMobileApi.projectCreationByMobileVerifiedByAPI()'><b>projectCreationByMobileVerifiedByAPI</b><br>Test class: Assignments.Astro_MobileAutomation.TestMobileApi<br>Test method: Verify that project created in mobile application is verified by API successfully</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+<td><div><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Must provide a selector when finding elements
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-7B2H7EG&apos;, ip: &apos;192.168.100.42&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_191&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appActivity: com.todoist.activity.HomeAc..., appPackage: com.todoist, autoGrantPermissions : true, databaseEnabled: false, desired: {appActivity: com.todoist.activity.HomeAc..., appPackage: com.todoist, autoGrantPermissions : true, deviceName: 72fce89, disableAndroidWatchers: true, ignoreUnimportantViews: true, newCommandTimeout: 2400, noReset: true, platformName: android, skipDeviceInitialization: true, skipUnlock: true, systemPort: 8202, udid: 72fce89}, deviceManufacturer: OnePlus, deviceModel: ONEPLUS A6000, deviceName: 72fce89, deviceScreenSize: 1080x2280, deviceUDID: 72fce89, disableAndroidWatchers: true, ignoreUnimportantViews: true, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 2400, noReset: true, platform: LINUX, platformName: Android, platformVersion: 9, skipDeviceInitialization: true, skipUnlock: true, systemPort: 8202, takesScreenshot: true, udid: 72fce89, warnings: {}, webStorageEnabled: false}
-Session ID: f0ee3d6e-c3c3-4d91-adf9-20bd15851079
-*** Element info: {Using=id, value=com.todoist:id/email_exists_input}
+Capabilities {appActivity: com.todoist.activity.HomeAc..., appPackage: com.todoist, autoGrantPermissions : true, databaseEnabled: false, desired: {appActivity: com.todoist.activity.HomeAc..., appPackage: com.todoist, autoGrantPermissions : true, deviceName: 5569a9b7d740, disableAndroidWatchers: true, ignoreUnimportantViews: true, newCommandTimeout: 2400, noReset: true, platformName: android, skipDeviceInitialization: true, skipUnlock: true, systemPort: 8202, udid: 5569a9b7d740}, deviceManufacturer: Xiaomi, deviceModel: Redmi 4A, deviceName: 5569a9b7d740, deviceScreenSize: 720x1280, deviceUDID: 5569a9b7d740, disableAndroidWatchers: true, ignoreUnimportantViews: true, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 2400, noReset: true, platform: LINUX, platformName: Android, platformVersion: 7.1.2, skipDeviceInitialization: true, skipUnlock: true, systemPort: 8202, takesScreenshot: true, udid: 5569a9b7d740, warnings: {}, webStorageEnabled: false}
+Session ID: 71114023-27a3-46d6-82a2-6922255e9084
+*** Element info: {Using=id, value=}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -112,9 +111,9 @@ Session ID: f0ee3d6e-c3c3-4d91-adf9-20bd15851079
 	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy9.sendKeys(Unknown Source)
-	at com.todoist.en.mobile.Mobile_LoginScreen.provideEmail(Mobile_LoginScreen.java:27)
-	at Assignments.Astro_MobileAutomation.TestMobileApi.projectCreationByMobileVerifiedByAPI(TestMobileApi.java:130)
+	at com.sun.proxy.$Proxy9.click(Unknown Source)
+	at com.todoist.en.mobile.Mobile_HomePage.clickMenuButton(Mobile_HomePage.java:43)
+	at Assignments.Astro_MobileAutomation.TestMobileApi.projectCreationByMobileVerifiedByAPI(TestMobileApi.java:136)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -140,15 +139,14 @@ Session ID: f0ee3d6e-c3c3-4d91-adf9-20bd15851079
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace485845532", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace485845532'><pre>org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters.
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+</pre></div><a href='#' onClick='toggleBox("stack-trace455501890", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace455501890'><pre>org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: Must provide a selector when finding elements
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-7B2H7EG&apos;, ip: &apos;192.168.100.42&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_191&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appActivity: com.todoist.activity.HomeAc..., appPackage: com.todoist, autoGrantPermissions : true, databaseEnabled: false, desired: {appActivity: com.todoist.activity.HomeAc..., appPackage: com.todoist, autoGrantPermissions : true, deviceName: 72fce89, disableAndroidWatchers: true, ignoreUnimportantViews: true, newCommandTimeout: 2400, noReset: true, platformName: android, skipDeviceInitialization: true, skipUnlock: true, systemPort: 8202, udid: 72fce89}, deviceManufacturer: OnePlus, deviceModel: ONEPLUS A6000, deviceName: 72fce89, deviceScreenSize: 1080x2280, deviceUDID: 72fce89, disableAndroidWatchers: true, ignoreUnimportantViews: true, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 2400, noReset: true, platform: LINUX, platformName: Android, platformVersion: 9, skipDeviceInitialization: true, skipUnlock: true, systemPort: 8202, takesScreenshot: true, udid: 72fce89, warnings: {}, webStorageEnabled: false}
-Session ID: f0ee3d6e-c3c3-4d91-adf9-20bd15851079
-*** Element info: {Using=id, value=com.todoist:id/email_exists_input}
+Capabilities {appActivity: com.todoist.activity.HomeAc..., appPackage: com.todoist, autoGrantPermissions : true, databaseEnabled: false, desired: {appActivity: com.todoist.activity.HomeAc..., appPackage: com.todoist, autoGrantPermissions : true, deviceName: 5569a9b7d740, disableAndroidWatchers: true, ignoreUnimportantViews: true, newCommandTimeout: 2400, noReset: true, platformName: android, skipDeviceInitialization: true, skipUnlock: true, systemPort: 8202, udid: 5569a9b7d740}, deviceManufacturer: Xiaomi, deviceModel: Redmi 4A, deviceName: 5569a9b7d740, deviceScreenSize: 720x1280, deviceUDID: 5569a9b7d740, disableAndroidWatchers: true, ignoreUnimportantViews: true, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, newCommandTimeout: 2400, noReset: true, platform: LINUX, platformName: Android, platformVersion: 7.1.2, skipDeviceInitialization: true, skipUnlock: true, systemPort: 8202, takesScreenshot: true, udid: 5569a9b7d740, warnings: {}, webStorageEnabled: false}
+Session ID: 71114023-27a3-46d6-82a2-6922255e9084
+*** Element info: {Using=id, value=}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -177,9 +175,9 @@ Session ID: f0ee3d6e-c3c3-4d91-adf9-20bd15851079
 	at io.appium.java_client.android.AndroidDriver.findElement(AndroidDriver.java:1)
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy9.sendKeys(Unknown Source)
-	at com.todoist.en.mobile.Mobile_LoginScreen.provideEmail(Mobile_LoginScreen.java:27)
-	at Assignments.Astro_MobileAutomation.TestMobileApi.projectCreationByMobileVerifiedByAPI(TestMobileApi.java:130)
+	at com.sun.proxy.$Proxy9.click(Unknown Source)
+	at com.todoist.en.mobile.Mobile_HomePage.clickMenuButton(Mobile_HomePage.java:43)
+	at Assignments.Astro_MobileAutomation.TestMobileApi.projectCreationByMobileVerifiedByAPI(TestMobileApi.java:136)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -206,7 +204,7 @@ Session ID: f0ee3d6e-c3c3-4d91-adf9-20bd15851079
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>12</td>
+<td>27</td>
 <td>Assignments.Astro_MobileAutomation.TestMobileApi@4566e5bd</td></tr>
 </table><p>
 </body>
