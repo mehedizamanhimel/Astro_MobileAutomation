@@ -18,30 +18,21 @@ public class createProjectAPI {
 	JsonPath jsonresponse;
 	
 	
-	public void createProject(String token, String type, 
-			String temp_id, String uuid, 
-			String args, String name, int color,
-			int is_favorite, int parent_id, int child_order) throws IOException {
+	public void createProject(String token,  
+			int uuid, String name) throws IOException {
 		
 		testdata = new testProperty();
 		
 		RestAssured.baseURI = testdata.properties.getProperty("baseUrl");
-		RestAssured.basePath = "API/v8.3/sync";
+		RestAssured.basePath = "/rest/v1/projects";
 		
 		jsonresponse = new JsonPath(RestAssured.
 				given().
-				header("token", token).
 				contentType("application/json").
+				header("token", token).
+				header("X-Request-Id", uuid).
 				
-				queryParam("type" , type).
-				queryParam("temp_id" , temp_id).
-				queryParam("uuid" , uuid).
-				queryParam("args" , args).
 				queryParam("name" , name).
-				queryParam("color" , color).
-				queryParam("parent_id" , parent_id).
-				queryParam("child_order" , child_order).
-				queryParam("is_favorite" , is_favorite).
 				body(json.toString()).
 				when().
 				post().
@@ -51,16 +42,16 @@ public class createProjectAPI {
 			
 	}
 	
-	public String getDataValue() {
-		return jsonresponse.getString("data");
+	public String getID() {
+		return jsonresponse.getString("id");
 	}
 	
-	public String getSuccessValue() {
-		return jsonresponse.getString("success");
+	public int getOrder() {
+		return jsonresponse.getInt("order");
 	}
 	
-	public String getMessage() {
-		return jsonresponse.getString("message").toString();
+	public String getProjectName() {
+		return jsonresponse.getString("name");
 	}
 	
 	public String getResponseCode() {
