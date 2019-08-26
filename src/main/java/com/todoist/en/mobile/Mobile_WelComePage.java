@@ -17,13 +17,13 @@ public class Mobile_WelComePage {
 		
 	}
 	
-	@FindBy(id="")
+	@FindBy(id="com.todoist:id/btn_google")
 	WebElement continueWithFaceBook;
 	
-	@FindBy(id="")
+	@FindBy(id="com.todoist:id/btn_facebook")
 	WebElement continueWithGoogle;
 	
-	@FindBy(id="")
+	@FindBy(id="com.todoist:id/btn_welcome_continue_with_email")
 	WebElement continueWithEmail;
 	
 	public void selectFacebook() {

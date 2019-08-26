@@ -38,7 +38,7 @@ public class createProjectAPI {
 				post().
 				asString());
 		
-		//jsonresponse.prettyPrint();
+		jsonresponse.prettyPrint();
 			
 	}
 	

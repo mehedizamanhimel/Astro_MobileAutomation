@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class Mobile_LoginScreen {
 	
@@ -17,11 +18,11 @@ public class Mobile_LoginScreen {
 		
 	}
 	
-	@FindBy(id="")
-	WebElement inputEmail;
+	@AndroidFindBy(id="com.todoist:id/email_exists_input")
+	public WebElement inputEmail;
 
-	@FindBy(id="")
-	WebElement continueWithEmailButton;
+	@AndroidFindBy(id="com.todoist:id/btn_continue_with_email")
+	public WebElement continueWithEmailButton;
 	
 	public void provideEmail(String email) {
 		inputEmail.sendKeys(email);

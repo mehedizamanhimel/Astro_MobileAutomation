@@ -23,6 +23,9 @@ public class Mobile_HomePage {
 	WebElement headerContent;
 	
 	@FindBy(id="")
+	WebElement projectList;
+	
+	@FindBy(id="")
 	WebElement addProjectButton;
 	
 	@FindBy(id="")
@@ -50,5 +53,9 @@ public class Mobile_HomePage {
 	
 	public void finishCreatingProject() {
 		createProjectButton.click();
+	}
+	
+	public String getProjectName() {
+		return projectList.getText();
 	}
 }

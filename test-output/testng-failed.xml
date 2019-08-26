@@ -5,8 +5,10 @@
     <classes>
       <class name="Assignments.Astro_MobileAutomation.TestMobileApi">
         <methods>
-          <include name="projectCreationByAPI"/>
           <include name="beforeTest"/>
+          <include name="projectCreationByMobileVerifiedByAPI"/>
+          <include name="stopServer"/>
+          <include name="startServer"/>
         </methods>
       </class> <!-- Assignments.Astro_MobileAutomation.TestMobileApi -->
     </classes>
