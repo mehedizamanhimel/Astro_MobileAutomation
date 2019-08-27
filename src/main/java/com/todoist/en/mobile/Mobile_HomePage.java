@@ -55,7 +55,9 @@ public class Mobile_HomePage {
 		createProjectButton.click();
 	}
 	
-	public String getProjectName() {
+	
+
+	public String VerifyProjectName() {
 		return projectList.getText();
 	}
 }

@@ -11,6 +11,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import com.todoist.en.api.createProjectAPI;
+import com.todoist.en.api.getSingleProject;
 import com.todoist.en.mobile.Mobile_HomePage;
 import com.todoist.en.mobile.Mobile_LoginScreen;
 import com.todoist.en.mobile.Mobile_WelComePage;
@@ -24,8 +25,7 @@ public class TestMobileApi extends AppiumBase {
 	
 	testProperty testData; 
 	
-	createProjectAPI apiProject = new createProjectAPI();
-	public String projectName = RandomStringUtils.randomAlphabetic(9);
+	
 	public WebDriverWait wait;
 	
 	public void setUp() throws IOException {
@@ -60,6 +60,9 @@ public class TestMobileApi extends AppiumBase {
 		String projectName = RandomStringUtils.randomAlphabetic(9);
 		int uuid = RandomUtils.nextInt();
 		
+		//creating objects for page classes and API classes
+		createProjectAPI apiProject = new createProjectAPI();
+				
 		apiProject.createProject(testData.properties.getProperty("Authorization"), uuid, projectName);
 		System.out.println("The Project Name given is :"+projectName);
 		System.out.println("The uuid given is :"+uuid);
@@ -77,6 +80,8 @@ public class TestMobileApi extends AppiumBase {
 		String projectName = RandomStringUtils.randomAlphabetic(9);
 		int uuid = RandomUtils.nextInt();
 		
+		//creating objects for page classes and API classes
+		createProjectAPI apiProject = new createProjectAPI();
 		Mobile_HomePage homePage = new Mobile_HomePage(driver);
 		Mobile_LoginScreen loginPage = new Mobile_LoginScreen(driver);
 		Mobile_WelComePage welComePage = new Mobile_WelComePage(driver);
@@ -105,7 +110,7 @@ public class TestMobileApi extends AppiumBase {
 		Assert.assertEquals(homePage.getHeaderContent(), "Today");
 		homePage.clickMenuButton();
 		
-		homePage.getProjectName();
+		homePage.VerifyProjectName();
 		
 		
 	}
@@ -114,28 +119,40 @@ public class TestMobileApi extends AppiumBase {
 	public void projectCreationByMobileVerifiedByAPI() throws IOException, InterruptedException {
 		setUp();
 		
+		
 		testData = new testProperty();
 		String projectName = RandomStringUtils.randomAlphabetic(9);
 		int uuid = RandomUtils.nextInt();
 		
+		//creating objects for page classes and API classes
 		Mobile_HomePage homePage = new Mobile_HomePage(driver);
 		Mobile_LoginScreen loginPage = new Mobile_LoginScreen(driver);
 		Mobile_WelComePage welComePage = new Mobile_WelComePage(driver);
+		getSingleProject getProject = new getSingleProject();
 		String userEmail = testData.properties.getProperty("email");
 		String userPass = testData.properties.getProperty("pass");
 		
 		welComePage.selectEmail();
 		welComePage.cancel();
+		
+		//Login with current email
 		loginPage.provideEmail(userEmail);
 		loginPage.confirmButtonToContinueWithEmail();
 		loginPage.providePass(userPass);
 		loginPage.loginWithEmail();
+		
+		//Going to homePage, verify the header is the same name, creating a project
+		homePage.getHeaderContent();
+		Assert.assertEquals(homePage.getHeaderContent(), "TodoIst");
 		homePage.clickMenuButton();
 		homePage.clickAddProjectButton();
+		homePage.inputProjectName(projectName);
+		homePage.finishCreatingProject();
+		getProject.getProjectName();
 		
-		
+		//Verifying the created project in API via comparing the project name
+		Assert.assertEquals(getProject.getProjectName(), projectName);
+						
 	}
-
-	
 	
 }
