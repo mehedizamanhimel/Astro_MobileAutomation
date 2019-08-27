@@ -4,7 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class Mobile_HomePage {
 
@@ -16,7 +18,7 @@ public class Mobile_HomePage {
 		PageFactory.initElements(driver, this);	
 	}
 	
-	@FindBy(id="")
+	@FindBy()
 	WebElement menuButton;
 	
 	@FindBy(id="")
@@ -28,10 +30,10 @@ public class Mobile_HomePage {
 	@FindBy(id="")
 	WebElement addProjectButton;
 	
-	@FindBy(id="")
+	@FindBy(id="com.todoist:id/name")
 	WebElement projectNameField;
 	
-	@FindBy(id="")
+	@FindBy(id="com.todoist:id/menu_form_submit")
 	WebElement createProjectButton;
 	
 	
@@ -40,11 +42,15 @@ public class Mobile_HomePage {
 	}
 	
 	public void clickMenuButton() {
-		menuButton.click();
+		new TouchAction(driver).longPress(PointOption.point(30, 160))
+        .moveTo(PointOption.point(70, 160))
+        .release().perform();
 	}
 	
 	public void clickAddProjectButton() {
-		addProjectButton.click();
+		new TouchAction(driver).longPress(PointOption.point(755, 771))
+        .moveTo(PointOption.point(795, 771))
+        .release().perform();
 	}
 	
 	public void inputProjectName(String projectName) {
